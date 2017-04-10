@@ -1,0 +1,94 @@
+namespace:
+	名称空间
+输入输出:
+	cout:	行缓冲
+	cerr:   无缓冲
+	cin:	接受用户输入
+指定对齐方式：
+	指定精度位数：
+		cout.precision(num):表示指定精度(小数部分)
+
+	c++默认6位(算小数点)(如果末尾为0，则不显示)。
+	如何指定精度
+	设置格式：
+		一个参数格式：
+		setf()函数
+			ios_base提供一个setf()函数控制多种格式特性
+			ios_base::showpoint	:	显示末尾小数点。
+			ios_base::boolalpha :	验证打印true和false
+			ios_base::showbase  :	对于输出，是否显示前缀(0, 0x)
+			ios_base::uppercase	: 	对于16进制，显示大写
+			ios_base::showpos	: 	在正数前打印+
+
+	第二种格式：
+	第一个参数			第二个参数				含义
+	ios_base::dec		ios_base::basefield		10进制数字
+	ios_base::oct								8进制数字
+	ios_base::hex								16进制数字
+	ios_base::fixed		ios_base::floatfield	使用定点计数法
+	ios_base::scientific 						使用科学计数法
+	ios_base::left								左对齐
+	ios_base::right								右对齐
+	ios_base::internal	ios_base::adjustfield	符号或者基数前缀右对齐，直左对齐，
+
+	cout.fill():表示填充
+	cout.width() : 表示多少位对齐
+
+	iomanip头文件中提供其他控制符
+	3 个常用
+		setprecision()	:	设置精度
+		setfill()		:	填充字符
+		setw()			:	字符宽度
+
+	vector : 模板类
+		格式：vector<type>varname(const);
+			c++11 vector <==> array
+
+	string :
+		所有空间大小由数据元素大小决定。
+		string one(const char *s) : 表示将string对象初始化为s指向字符串。	
+		string str(size_type n, char ch) : 表示创建一个包含n个元素的string对象，其中的每一个数据元素都是ch
+		string (const string & str) : 将string对象初始化为s字符串(复制构造函数)
+		string()		: 表示调用默认构造函数
+
+		string(begin_addr, end_addr)
+		string(string & str, begin_addr_value, size n);
+
+	接受一行字符
+	getline(name, size);会把输入队列中的换行处理掉
+	get(name, size); 则把换行依然放在输入队列中。
+	get():
+	get(ch):
+	处理string
+		getline(cin, str)
+		getline(cin. str, '#')
+
+	结构体：
+	指针：
+		malloc calloc realloc free
+		申请空间 new
+		格式 p = new int
+		释放空间 delete
+		实现动态数组
+	引用：
+		1 定义的时候初始化
+		2 不可以指向数组
+
+	结构：
+	if ... else...
+	if ... else if ... else
+	switch ... case
+	for
+	while
+	do_while
+	break
+	continue
+
+
+
+
+
+
+
+
+

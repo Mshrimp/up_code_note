@@ -1,0 +1,88 @@
+c++:
+	1 ：c++和c的不同
+		数据结构类型
+		第一种
+		.cpp -> .c
+		cfile => 1.c
+		c++file => 1.cpp 声明部分说明是一个C语言文件
+		1 生成动态库
+			c++文件调用c语言文件，不可以直接编译，则需要把C生成库文件
+			gcc -shared -fPIC -o libmyhello.so 1.o
+		2 编译：
+			g++ 1.cpp -L. -lmyhello
+		3 运行：
+			报错信息，因为动态库没有放在库文件中
+			cp libmyhello.so /lib/
+		
+		第二种：
+		.c -> .cpp
+		.cpp => 实现部分说明是通过C语言编译的代码
+		
+		printf => cout
+		scanf => cin
+		fprintf => cerr
+
+		char short int long float double  
+		float :
+
+		string: char s[]
+		vector: int a[] double[]
+
+		point:
+			malloc calloc readlloc free
+			new delete
+
+		reference: 引用
+		cctype 字符运算集
+	
+	2 function:
+		defaultarg: 默认参数
+		funcreload：函数重载 函数多态
+		inline : 内联函数
+		reference : 函数引用
+		terplate : 函数模板
+		reload_template: 重载模板
+		explicit : 实例化
+
+	
+	3 class 类
+		private : 表示私有部分
+			属性：
+		public 	: 表示公有部分
+			方法：
+		protected:表示保护部分
+	
+		constructor: 构造函数 默认构造函数 拷贝构造函数
+			必须跟类同名
+		class_reload:
+		destructor : 析构函数
+			也必须跟类同名，同时在函数前加~
+
+		friend : 友元函数
+			分三种：
+				友元函数
+				友元成员函数
+				友元类
+		const成员函数
+			void show(void) const
+
+		stack llist:
+		operator: 模板类
+		static :
+		new : 空间申请
+		vir ： 虚函数
+		类继承
+		类嵌套
+3 STL
+4 file IO
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,63 @@
+file:
+	写入内容到文件中
+		1 创建一个ofstream对象管理输出流
+		2 将该对象与特定文件相关联
+			判断是否打开成功
+				is_open(),如果打开成功则返回true 如果打开失败false
+		3 以cout的方法使用该对象
+		4 关闭文件
+
+	获取文件内容：
+		1 创建一个ifstream对象管理输入流 ifstream fin
+		2 关联文件 fin.open()
+		3 跟使用cin一样
+			char ch fin >> ch
+			char buf[128] fin >> buf
+					fin.getline(buf, 128)
+			string line  getline(fin, line)
+		4 关闭
+	流控制文件
+		输出流 cout 程序将字节插入到输出流中  屏幕
+		输入流 cin 程序从输入流中抽取字节     键盘
+
+	判断是否到文件结尾,判断语句放在获取文件数据后面。
+		eof() 对象成员函数
+		fail() 
+	指向打开模式：r r+ w w+ a a+
+	ios_base::in		: 表示只读
+	ios_base::out		: 表示只写
+	ios_base::ate		: 表示指针指向文件结尾  偏移位置
+	ios_base::app		: 表示指针指向文件结尾  只允许将数据添加到文件结尾。
+	ios_base::trunc		: 表示文件清空
+	ios_base::binary	: 表示二进制文件
+		fwrite fread write read
+
+	r 	: ios_base::in
+	r+ 	: ios_base::in | ios_base::out
+	w	: ios_base::out | ios_base::trunc
+	w+	: ios_base::out | ios_base::in | ios_base::trunc
+	a	: ios_base::out | ios_base::app
+	a+	: ios_base::out | ios_base::in | ios_base::app
+
+	偏移：
+		seekg() : 将输入指针移到指定的文件位置 ifstream
+		seekp() : 将输出指针移到指定的文件位置 ofstream
+			单位之字节 位置从1开始
+		seekg(10) : 表示将指针指向第10个位置
+		第一个参数：表示偏移量
+		第二个参数：表示偏移位置
+			ios_beg	: 表示文件开头
+			ios_cur : 表示当前位置
+			ios_end : 表示结尾
+
+
+
+
+
+
+
+
+
+
+
+

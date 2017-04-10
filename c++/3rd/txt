@@ -1,0 +1,59 @@
+func:
+	defaultarg:
+		默认参数： 函数声明的时候写入
+		默认参数赋值必须从右到左依次赋值
+	inline :
+	reference:
+		作为函数参数来使用
+		返回类型
+		const 
+		struct
+		string
+	reload:函数重载 函数多态
+		函数参数不同，函数名相同 -> 函数重载 函数多态
+		函数特征标： 数据类型 数据个数 位置不同
+		
+		如果返回值不同，而函数特征标一样，则不是函数重载。
+
+		如下则会发生歧义，虽然特征标不一样，但是函数执行不发识别。
+		test(int a);
+		test(int & a);
+		test(const int & a);
+
+		template:函数模板
+			定义模板：
+				template<typename anytype> 其中typename 可以用class替换。
+		普通函数比模板函数优先级要高。
+
+			练习：
+				int double struct 
+				string 
+				char name[]
+
+	reaload_template: 重载模板
+		原来模板特征标(T & , T &) 而新的模板特征标(T [], T[], int n)
+
+
+	
+	struct 
+		name => 
+
+	显式具体化：
+		直接交换结构体信息，具体到某一成员则实现数据交换，为了解决这个为题，提出为特定数据类型提供具体化的模板定义，称为显式具体化。
+		template<>开头
+	
+	优先级： 显式具体化 > 函数模板
+			 普通函数 > 函数模板
+	1 是否可以再次定义普通函数实现具体化
+	2 查看优先级。
+
+
+
+
+
+
+
+
+
+
+
