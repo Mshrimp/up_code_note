@@ -1,0 +1,51 @@
+
+多级指针和多维数组没有任何关系
+	他们之间的偏移量不同
+
+多维数组等价数组指针
+
+	函数指针：首先是一个指针， 这个指针指向的是一个函数
+
+	指针函数：首先函数，只是这个函数返回类型是一个指针
+		char *strcpy(char *dest, const char *src)
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+结构体：
+	class info : 
+		char name[128];
+		int age;
+		char sex;
+		float cn;
+		void (*func)(void);
+	
+	struct cls_t{
+		name;
+		age;
+		.....
+	};
+
+====================================
+
+1 实现五子棋 
+2 打字程序
+3 求最大公共字串
+		helloworld
+		kjdskjhfdllokjfdsj
+4 实现字符串反转
+	how are you
+5 去除公共单词
+
+6 贪吃蛇 弹球 俄罗斯方块	
+
+
+
+
+
+
+
+
+
+
+
+
+

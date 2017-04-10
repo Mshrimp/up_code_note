@@ -1,0 +1,241 @@
+函数：
+	用户角度：
+		库函数：
+		自定义函数：
+	参数：
+		有参函数：
+			实参：调用函数
+			形参：实现函数
+
+			类型保持一致
+			数量保持一致
+			位置保持一致
+		无参函数：
+
+	参数：变量 函数 常量 表达式
+	调用：
+	=========================
+	可变参：...
+	main(int argc, char *argv[])
+	第一个参数： 表示参数个数
+	第二个参数： 指针数组：首先数组，数组的每一个元素都是地址
+
+	va_list	ap							 表示定义不定参结构体
+	void va_start(va_list ap, last);	 表示对不定参初始化
+	type va_arg(va_list ap, type);		 表示取出里面内容
+	void va_end(va_list ap);			 表示清空内存空间地址
+
+	练习：main 123 4  632  643 32 5
+	================================
+
+	file :
+		filename .c  => 源文件
+
+		头文件：filename.h
+			<> : 表示从存放头文件系统目录中查找/usr/include/
+			"" : 表示从当前目录中查找，如果当前目录中不存在，则从系统目录中查找
+	
+	makefile: 为了解决多文件编译
+	1 创建makefile文件 touch Makefile
+	2 执行makefile,则需要创建规则
+		默认规则：all:
+			tab键
+	
+	注释：#
+	伪代码：.PHONY
+
+	$^ : 表示所有依赖
+	$@ : 表示目标(规则)
+	$< : 表示依赖第一个目标
+
+	赋值：
+		=	: 表示赋值
+		+=  : 表示原有的基础上累加
+		:=	: 表示后面的值替换掉前面的值。
+		?=	: 表示如果这个变量值存在，则不替换
+				如果不存在，则替换
+	指定makefile文件名
+		make -f filename [install uninstall clean ... ]
+
+	库文件：/lib
+		动态库：.so
+			1 由源文件(.c)生成目标代码(.o)
+			2 生成动态库
+				lib作为库名前缀
+				gcc -shared -fPIC -o libmyhello.so hello.o world.o test.o
+				-shared : 表示生成动态库标识
+				-fPIC	: 表示生成动态库和代码位置无关
+			3 连接动态库
+				gcc 2.c -L. -lmyhello -o main
+				-L : 表示动态共享库存放路径
+				-l : 表示连接动态库库名
+				-I : 表示连接头文件
+
+			4 执行
+				[root@aa 4th]# ./main 
+				./main: error while loading shared libraries: libmyhello.so: cannot open shared object file: No such file or directory
+
+				因为动态库只有在运行的时候才会调用
+				1 则需要把动态库放在系统库文件目录中 /lib
+				2 修改配置文件/etc/ld.so.conf
+					添加动态库所在目录中绝对路径
+					ldconfig 使配置文件生效
+
+		静态库：.a
+
+			1 由.o文件生成
+			2 生成静态库
+				ar -cr libmyworld.a hello.o world.o test.o
+				-c : 表示创建静态库
+				-r : 表示模块添加到静态库中，如果静态库中存在同名模块，则会替换掉
+				ar -t libmyworld.a
+				-t : 表示查看模块
+			3 链接静态库
+				gcc 2.c -L. -lmyworld.a -o test
+			4 运行
+				运行成功
+			结论
+				动态库在运行的时候调用
+				静态库在编译时候就调用
+
+
+				动态库比静态库优先级别要高。
+======================================
+	递归：
+		直接递归：A -> A
+		间接递归：A -> B -> A
+
+		退出条件
+
+		练习：
+			*
+			* *
+			* * *
+			* * * *
+			* * * * *
+========================================
+数组：
+	定义数组
+	int arr[num];
+
+	特性：
+		1 数组的数据元素都是同一种类型
+		2 数组下标从0开始 数组下标必须是常量
+		3 数组不可以越界访问，会造成段错误
+		4 数组脱离开定义则不可以整体赋值
+		5 数组地址空间是连续的
+	
+	&a:		表示整个数组首地址 +1偏移整个数组大小
+	a:		表示数据元素的首地址，+1偏移一个数据元素大小
+	&a[0] : 表示a[0]这个数据地址
+
+	homework :
+		1 封装黑色星期五
+			main -> func -> file -> makefile -> .so .a
+		2 实现汉诺塔  走台阶
+
+		3 分函数实现7个小功能
+		4 
+			9 5 2 7 6 6 1 9 5 6
+			求第二大数，重复的不统计
+		* 5 date cal
+======================================
+	数组和函数关系
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+下午数组char str
+
+
+
+接受一个字符串：
+	char *fgets(char *s, int size, FILE *stream);
+	第一个参数：表示存放接受字符串空间地址
+	第二个参数：表示存储空间大小
+	第三个参数：表示文件指针 从标准输入获取数值 stdin
+	返回值
+		指向s的首地址
+
+	str家族函数：
+		strcpy()	: 字符拷贝函数
+		char *strcpy(char *dest, const char *src);
+		char *strncpy(char *dest, const char *src, size_t n);表示指定拷贝个数
+		不会补尾零
+
+		strcat()	: 字符串连接
+		strncat()	: 自定连接个数
+		char *strcat(char *dest, const char *src);
+		char *strncat(char *dest, const char *src, size_t n);
+
+		strcmp()	: 字符串比较
+		strncmp()	: 表示指定比较个数
+		int strcmp(const char *s1, const char *s2);
+		int strncmp(const char *s1, const char *s2, size_t n);
+
+		strchr()	: 字符匹配函数  从前到后
+		strrchr()	: 查找			从后到前
+		char *strchr(const char *s, int c);
+		char *strrchr(const char *s, int c);
+		
+		
+		strstr()	: 查找匹配字符串	
+		strcasestr(): 不区分大小写查找
+
+	
+		memcpy()	: 内存拷贝函数
+		void *memcpy(void *dest, const void *src, size_t n);
+			第一个参数：表示目标地址
+			第二个参数：表示源地址
+			第三个参数：表示拷贝数据空间大小 字节单位
+
+		memset()	: 清空函数
+
+		memmove() : 移动函数
+
+		如果内存空间不重叠，则memcpy和memmove没有区别
+		如果内存空间重叠，则用memmove.
+==========================================
+	多维数组：
+		二维数组为例：int char
+		int a[2][3]:
+		
+		&a	:	表示整个数组首地址， +1偏移整个数组大小
+		a	:	表示数组行首地址，+1偏移一行大小
+		a[0]:	表示数组列首地址，+1偏移一列大小
+		
+
+
+
+
+		homework:
+			1 strcpy strncpy strcat strncat strcmp strncmp strchr strrchr strstr strcasestr
+			
+			void my_strcpy(char dest[] char src[]);
+			int my_strcmp(char s1[], char s2[]);
+			int my_strrchr(char s[], char ch);
+
+			2 实现任意进制之间转换
+			3 实现bc +
+			4 实现弹球程序
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

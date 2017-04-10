@@ -1,0 +1,56 @@
+file IO:
+	fopen()	打开文件
+		mode r r+ w w+ a a+
+	fclose()关闭文件
+
+	perror():报错函数
+	strerror():
+	int errno:
+
+	按字符读和写：
+		fgetc():读
+		fputc():写
+	按行读和写：
+		char buf[128] = "hello"
+		fgets():读	空间大小
+		fputs():写	长度大小
+	按buf读和写
+		char buf[1024]
+		fread():读
+			fread(buf, type, sizeof, fp);
+		fwrite():写
+	按格式读和写：
+		fprintf():写
+		fscanf():读
+	1 cp grep
+	
+================================
+	int fseek(FILE *stream, long offset, int whence); 偏移
+		第一个参数：表示文件指针
+		第二个参数：表示偏移量
+		第三个参数：表示偏移位置
+			SEEK_SET ：表示文件开头
+			SEEK_CUR ：表示文件当前位置
+			SEEK_END ：表示文件结尾
+		返回值：
+			成功：0
+			失败：-1
+	long ftell(FILE *stream) 显示偏移量
+
+	void rewind(FILE *stream) 指向文件开头
+========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

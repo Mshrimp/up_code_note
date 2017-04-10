@@ -1,0 +1,88 @@
+str:
+	fgets
+	strlen():
+	sizeof():
+	strcpy():
+	strncpy():
+	strcat():
+	strncat():
+	strcmp():
+	strncmp():
+	strchr():
+	strrchr():
+	strstr():
+	strcasestr():
+
+	memset()
+	memcpy()
+	memmove()
+int a[2][3]
+int a[2][3][4]
+int a[2][3][4][5]
+{{{{1,2,3,4,5}, {}, {}, {}}, {}, {}}, {{}, {}, {}}};
+ 
+ &a:	2 * 3 * 4 * 5 * 4
+ a:		3 * 4 * 5 * 4
+ a[0]:	4 * 5 * 4
+ a[0][0] 5 * 4
+ a[0][0][0]	4
+ &a[0][0][0][0]
+==============================
+
+
+如何获取键值：
+				c(文件指针)	sys(文件描述符)
+	标准输入：	stdin		0
+	标准输出：  stdout		1
+	错误输出：  stderr		2
+				fopen      open
+
+	ssize_t read(int fd, void *buf, size_t count);
+	第一个参数：表示文件描述符 0
+	第二个参数：表示存储空间
+	第三个参数：表示存储空间大小
+	返回值：
+		表示键值个数
+
+	练习：实现进度条
+
+homework:
+	1 实现约瑟夫环。
+		m n
+		count == n
+		while(out < m)
+		{
+			for (i = 0; i < m; i++)
+			{
+			
+			}
+		}
+		out++
+	2 实现密码程序
+
+	3 封装VT码
+
+	4 用VT实现弹球程序  碰到边界改变球颜色
+
+	5 实现五子棋
+================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

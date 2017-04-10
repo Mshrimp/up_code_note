@@ -1,0 +1,100 @@
+======================================
+	数组和函数关系
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+下午数组char str
+
+
+
+接受一个字符串：
+	char *fgets(char *s, int size, FILE *stream);
+	第一个参数：表示存放接受字符串空间地址
+	第二个参数：表示存储空间大小
+	第三个参数：表示文件指针 从标准输入获取数值 stdin
+	返回值
+		指向s的首地址
+
+	str家族函数：
+		strcpy()	: 字符拷贝函数
+		char *strcpy(char *dest, const char *src);
+		char *strncpy(char *dest, const char *src, size_t n);表示指定拷贝个数
+		不会补尾零
+
+		strcat()	: 字符串连接
+		strncat()	: 自定连接个数
+		char *strcat(char *dest, const char *src);
+		char *strncat(char *dest, const char *src, size_t n);
+
+		strcmp()	: 字符串比较
+		strncmp()	: 表示指定比较个数
+		int strcmp(const char *s1, const char *s2);
+		int strncmp(const char *s1, const char *s2, size_t n);
+
+		strchr()	: 字符匹配函数  从前到后
+		strrchr()	: 查找			从后到前
+		char *strchr(const char *s, int c);
+		char *strrchr(const char *s, int c);
+		
+		
+		strstr()	: 查找匹配字符串	
+		strcasestr(): 不区分大小写查找
+
+	
+		memcpy()	: 内存拷贝函数
+		void *memcpy(void *dest, const void *src, size_t n);
+			第一个参数：表示目标地址
+			第二个参数：表示源地址
+			第三个参数：表示拷贝数据空间大小 字节单位
+
+		memset()	: 清空函数
+
+		memmove() : 移动函数
+
+		如果内存空间不重叠，则memcpy和memmove没有区别
+		如果内存空间重叠，则用memmove.
+==========================================
+	多维数组：
+		二维数组为例：int char
+		int a[2][3]:
+		
+		&a	:	表示整个数组首地址， +1偏移整个数组大小
+		a	:	表示数组行首地址，+1偏移一行大小
+		a[0]:	表示数组列首地址，+1偏移一列大小
+		
+
+
+
+
+		homework:
+			1 strcpy strncpy strcat strncat strcmp strncmp strchr strrchr strstr strcasestr
+			
+			void my_strcpy(char dest[] char src[]);
+			int my_strcmp(char s1[], char s2[]);
+			int my_strrchr(char s[], char ch);
+
+			2 实现任意进制之间转换
+			3 实现bc +
+			4 实现弹球程序
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
